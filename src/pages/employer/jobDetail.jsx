@@ -34,19 +34,19 @@ const JobDetail = () => {
     axios
       .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/jobData/delete`, data)
       .then((response) => {
-        // console.log(response);
         Swal.fire("job delete sucessfully")
         Navigate("/employer/profile/user")
       })
   }
   const accpted = (id) => {
-    const data = { id };
+    let jobId = jobTitle._id
+    let userId = id
+    const data = { jobId,userId };
     axios
-      .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/jobData/delete`, data)
+      .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/selected`, data)
       .then((response) => {
-        // console.log(response);
         Swal.fire("job sucessfully");
-        // Navigate("/employer/profile/user");
+        Navigate("/employer/profile/user");
       })
   }
 
