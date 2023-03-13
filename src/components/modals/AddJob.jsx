@@ -30,10 +30,10 @@ const AddJob = ({ setIsOpenFrom }) => {
     initialValues: {
       jobTitle: "",
       Category: "",
-      jobType: "fullTime",
-      workPlacetype: "onSite",
+      jobType: "full Time",
+      workPlacetype: "On site",
       amount: "",
-      salaryType: "perMonth",
+      salaryType: "per month",
       decrption: "",
       duration: "",
     },
