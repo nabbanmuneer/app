@@ -29,7 +29,7 @@ const EmployeeProfile = () => {
   const [pdf, setPdf] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [job, setJob] = useState([]);
-
+  const [select , setSelect] = useState('')
   useEffect(() => {
     const valuedata = { id };
     if (token) {
@@ -42,8 +42,10 @@ const EmployeeProfile = () => {
           if (!response.status) {
           } else {
             let data = response.data.data.user;
+            let selecled = response.data.data.select;
+            console.log(selecled);
+            setSelect(selecled)
             setJob(response.data.data.job);
-            console.log(job);
             setUserName(data.userName);
             setEmail(data.email);
             setPhoneNo(data.phoneNo);
@@ -73,12 +75,10 @@ const EmployeeProfile = () => {
                 </div>
               </div>
               <div className="flex flex-col item-center">
-                <div className="text-center">{job.length}</div>
-                <div>YOUR BID</div>
-              </div>
-              <div className="flex flex-col item-center">
-                <div className="text-center">{job.length}</div>
-                <div>FINISHED</div>
+                <div className="text-center font-bold text-6xl">
+                  {select.length}
+                </div>
+                <div className="font-bold text-3xl leading-tight focus:outline-none">SELECTED</div>
               </div>
             </div>
             <div>
@@ -91,8 +91,8 @@ const EmployeeProfile = () => {
                         key={index}
                         onClick={() => jobProfile(value._id)}
                       >
-                        <p>Job Title:{value.jobTitle}</p>
-                        <p>Bid : {value.bid.bidValue}</p>
+                        <p>{value.jobTitle}</p>
+                        <p>{value.bid.bidValue}</p>
                       </div>
                     ))}
                 </>

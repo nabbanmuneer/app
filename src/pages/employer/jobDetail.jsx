@@ -17,7 +17,6 @@ const JobDetail = () => {
     axios
       .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/jobData`, data)
       .then((response) => {
-        console.log(response.data.jobsData, "dsfgfsdg", response.data.job);
         const jobData = response.data.jobsData;
         const jobBid = response.data.job;
         setJobTitle(jobData);
@@ -98,9 +97,9 @@ const JobDetail = () => {
           </div>
         )}
 
-      </div> : <div>
-        selected
-      </div>}
+      </div> : <div className=" text-3xl font-bold p-5 " onClick={() => employeeProfile(jobTitle.selected[0].userId)}>
+        Selected 
+      </div>} 
       {isOpenFrom && <EditJob setIsOpenFrom={setIsOpenFrom} />}
     </div>
   );
