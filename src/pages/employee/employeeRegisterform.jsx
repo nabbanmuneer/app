@@ -211,7 +211,7 @@ const employeeRegisterform = () => {
               }}
               className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
               type="text"
-              placeholder="Username"
+              placeholder="User name"
               aria-label="Username"
               value={userName}
             />

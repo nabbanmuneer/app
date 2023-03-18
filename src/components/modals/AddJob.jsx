@@ -10,16 +10,16 @@ const AddJob = ({ setIsOpenFrom }) => {
   const id = useSelector(selectCurrentId);
   const validate = (values)=>{
     const error = {};
-    if(!values.jobTitle){
+    if(!values.jobTitle || values.jobTitle==" "){
       error.jobTitle = "Job tilte is required";
     }
-    if(!values.Category){
+    if(!values.Category || values.Category==" "){
       error.Category = "Category is required";
     }
-    if(!values.amount){
+    if(!values.amount || values.amount==" "){
       error.amount = "Amount is required";
     }
-    if(!values.decrption){
+    if(!values.decrption || values.decrption==" "){
       error.decrption = "Decrption is required";
     }
     return error;
@@ -107,7 +107,7 @@ const AddJob = ({ setIsOpenFrom }) => {
                 onChange={formik.handleChange}
                 className="appearance-none border-b  border-gray-700 bg-transparent border-none w-full text-gray-700 leading-tight focus:outline-none"
                 type="text"
-                placeholder="jobTitle"
+                placeholder="Job Title"
                 aria-label="jobTitle"
                 value={formik.values.jobTitle}
               />

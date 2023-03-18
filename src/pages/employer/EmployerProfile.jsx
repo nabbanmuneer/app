@@ -11,8 +11,6 @@ import EmployerUpdate from "../../components/modals/employerUpdate";
 import AddJob from "../../components/modals/AddJob";
 const EmployerProfile = () => {
   const Navigate = useNavigate();
-
-  const user = useSelector(selectCurrentUser);
   const token = useSelector(selectCurrentToken);
   const role = useSelector(selectCurrentRole);
   let { id } = useParams();
@@ -22,7 +20,6 @@ const EmployerProfile = () => {
   const [phoneNo, setPhoneNo] = useState("");
   const [place, setPlace] = useState("");
   const [logo, setLogo] = useState("");
-  const [details, setDetails] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenFrom, setIsOpenFrom] = useState(false);
   const [job, setJob] = useState([]);
@@ -51,7 +48,7 @@ const EmployerProfile = () => {
           }
         });
     }
-  }, [isOpenFrom, isOpen]);
+  }, [setIsOpenFrom, setIsOpen]);
 
   const jobProfile = (id) => {
     Navigate(`/employer/jobs/${id}`);
@@ -75,16 +72,12 @@ const EmployerProfile = () => {
               <div className="break-all p-2">place :{place}</div>
               <div className="break-all p-2">Contact :{phoneNo}</div>
               <div className="break-all p-2">Email : {email}</div>
-              <div className="p-2">Rating :{}</div>
               <div className="w-full flex flex-row border-4 border-black p-2 justify-around ">
                 <div className="bg-neutral-800 w-full text-center text-yellow-400">
-                  <button onClick={() => setIsOpen(true)}>update</button>
+                  <button onClick={() => setIsOpen(true)}>Update</button>
                 </div>
                 <div className="bg-neutral-800 w-full text-center text-yellow-400">
                   <button onClick={() => setIsOpenFrom(true)}>Add Job</button>
-                </div>
-                <div className="bg-neutral-800 w-full text-center text-yellow-400">
-                  <button>Notification</button>
                 </div>
               </div>
             </div>

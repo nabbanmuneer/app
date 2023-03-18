@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { GiHamburgerMenu, RxCross1 } from "react-icons/all";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { FiSearch } from "react-icons/fi";
-import axios from "axios";
 import Swal from "sweetalert2";
 import {
   selectCurrentUser,

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   selectCurrentUser,
@@ -10,7 +9,6 @@ import {
 const employeeUpdate = ({ setIsOpen }) => {
   const user = useSelector(selectCurrentUser);
   const token = useSelector(selectCurrentToken);
-  // const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [place, setPlace] = useState("");
   const [email, setEmail] = useState("");
@@ -48,7 +46,6 @@ const employeeUpdate = ({ setIsOpen }) => {
   });
 
   const nameCheck = () => {
-    let letters = /^[A-Za-z]+$/;
     if (userName.length < 3) {
       setValidation((prevState) => ({
         ...prevState,

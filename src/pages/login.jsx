@@ -77,7 +77,7 @@ const Login = () => {
               name="password"
               className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
               type="password"
-              placeholder="password"
+              placeholder="Password"
               aria-label="password"
               value={formik.values.password}
               onChange={formik.handleChange}
