@@ -49,7 +49,7 @@ function NavBar() {
 
   return (
     <div className="flex  cursor-context-menu h-30 max-w-[1240] mx-auto px-0  ">
-    <h1
+      <h1
         onClick={home}
         className="w-full font-bold bg-black text-yellow-400  text-2xl p-4"
       >
@@ -69,7 +69,7 @@ function NavBar() {
           >
             Job
           </div>
-          
+
         </div>
         {!token ? (
           <div className="p-3 flex flex-row justify-around text-black bg-yellow-400 font-semibold w-[30%] ">
@@ -127,7 +127,7 @@ function NavBar() {
           </li>
         </ul>
       </div>
-      
+
     </div>
   );
 }
