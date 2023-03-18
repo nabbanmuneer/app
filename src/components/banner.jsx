@@ -3,38 +3,28 @@ import slide from '../assets/slider-img.png';
 import axios from 'axios';
 import { useEffect } from 'react';
 const Banner = () => {
-useEffect(() => {
-    try{
-console.log("dafdasf");
-        axios
-        .get(`${import.meta.env.VITE_BASESERVER_URL}/home/search`)
-        .then((response)=>{
-            
-            console.log("  dsafa",response.data.data);
-        })
-      }catch(error){
-      console.log(error);
-      }
-}, []);
-    const SearchBar = async()=>{
-        // const key=["jobTitle",]
-        try{
-          axios
-          .get(`${import.meta.env.VITE_BASESERVER_URL}/home/search`)
-          .then((response)=>{
-        //     let employee = response.data.data.employeeData;
-        //     let employor = response.data.data.employerData;
-        //     let job = response.data.data.jobData
-        //      data.filter((item) => {
-        //          keys.some((key) => item[key].toLowerCase().includes(query));
-        //       });
-
-        console.log(response.data.data);
-          })
-        }catch(error){
-        console.log(error);
+    useEffect(() => {
+        try {
+            axios
+                .get(`${import.meta.env.VITE_BASESERVER_URL}/home/search`)
+                .then((response) => {
+                })
+        } catch (error) {
+            console.log(error);
         }
-      }
+    }, []);
+    const SearchBar = async () => {
+
+        try {
+            axios
+                .get(`${import.meta.env.VITE_BASESERVER_URL}/home/search`)
+                .then((response) => {
+                    console.log(response.data.data);
+                })
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <div>
@@ -58,7 +48,7 @@ console.log("dafdasf");
                 <div className='hidden md:block bg-yellow-400 w-[14.9%]  h-[550px]'>
 
                 </div>
-                
+
             </div>
         </div>
     );

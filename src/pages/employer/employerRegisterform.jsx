@@ -175,7 +175,6 @@ const employerRegisterform = () => {
   const otpverify = (e) => {
     const user = { email, userName, phoneNo, password, otp };
     e.preventDefault();
-
     const response = axios
       .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/otpverify`, user)
       .then((res) => {

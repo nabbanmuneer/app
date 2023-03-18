@@ -32,7 +32,7 @@ const AddJob = ({ setIsOpenFrom }) => {
         setDecrption(jobData.decrption);
         setDuration(jobData.duration);
       }).catch((error) => {
-        console.log("catch error",error);
+        console.log("catch error", error);
       })
   }, [id]);
 
@@ -80,7 +80,6 @@ const AddJob = ({ setIsOpenFrom }) => {
           <form
             className="w-full bg-yellow-400 p-5 rounded-xl bottom-5 h-full"
             onSubmit={handleOnSubmit}
-            // onClick={() => setIsOpen(true)}
           >
             <div className="flex items-center border-b border-gray-700  py-2">
               <p className="w-[50%]">Job Title :</p>
@@ -96,9 +95,6 @@ const AddJob = ({ setIsOpenFrom }) => {
                 value={jobTitle}
               />
             </div>
-            {/* {!validation.userName.status && (
-            <p className="text-red-700 mt-6 ">{validation.userName.message}</p>
-          )} */}
             <div className="flex items-center border-b border-gray-700  py-2">
               <p className="w-[50%]"> Category :</p>
               <input
@@ -113,9 +109,6 @@ const AddJob = ({ setIsOpenFrom }) => {
                 value={Category}
               />
             </div>
-            {/* {!validation.userName.status && (
-            <p className="text-red-700 mt-6 ">{validation.userName.message}</p>
-          )} */}
             <div className="flex items-center border-b border-gray-700  py-2">
               <p className="">Job Type :</p>
               <select
@@ -143,9 +136,6 @@ const AddJob = ({ setIsOpenFrom }) => {
                 <option value="hybrid">hybrid</option>
               </select>
             </div>
-            {/* {!validation.userName.status && (
-            <p className="text-red-700 mt-6 ">{validation.userName.message}</p>
-          )} */}
             <div className="flex items-center border-b border-gray-700  py-2">
               <p className="w-[50%]"> Salary :</p>
               <input

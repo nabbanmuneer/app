@@ -16,7 +16,6 @@ const Login = () => {
   const validate = (values) => {
     
     const errors = {};
-    console.log("validation");
     if (!values.email) {
       errors.email = "Email is Required ";
     } else if (

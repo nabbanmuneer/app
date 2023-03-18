@@ -65,23 +65,19 @@ const AddJob = ({ setIsOpenFrom }) => {
         axios
           .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/addJob`, job)
           .then(response=>{
-            console.log(response);
             if(response?.status==200){
               Swal.fire("job posted sucessfully")
               .then(()=>{
                 setIsOpenFrom(false);
               })
             }else{
-              console.log(response,"response error");
               Swal.fire("job post unsucessfully");
             }
           }
           ).catch((error) => {
-            console.log("catch error",error);
             Swal.fire("job post unsucessfully");
           })
       } catch (error) {
-        console.log("catch error",error);
         Swal.fire("job post unsucessfully");
       } finally {
         formik.setSubmitting(false);
@@ -103,7 +99,6 @@ const AddJob = ({ setIsOpenFrom }) => {
           <form
             className="w-full bg-yellow-400 p-5 rounded-xl bottom-5 h-full"
             onSubmit={formik.handleSubmit}
-              // onClick={() => setIsOpen(true)}
           >
             <div className="flex items-center border-b border-gray-700  py-2">
               <p className="w-[50%]">Job Title :</p>

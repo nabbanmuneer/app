@@ -3,7 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
 import Swal from 'sweetalert2'
-// import Otp from '../component/otp';
 
 const employeeRegisterform = () => {
   const navigate = useNavigate();
@@ -153,7 +152,6 @@ const employeeRegisterform = () => {
 
   const onHandleSubmit = (e) => {
     const user = { email, userName, phoneNo, password };
-    console.log("otp no", phoneNo);
     e.preventDefault();
     nameCheck();
     passwordCheck();
@@ -172,11 +170,9 @@ const employeeRegisterform = () => {
             setstatus(true);
             Swal.fire("OTP SEND")
           } else {
-            console.log(res);
             setmsg("invalid email or password");
           }
         });
-      console.log("data", email, userName, phoneNo, password);
     } else {
       console.log("Error");
     }
@@ -185,7 +181,6 @@ const employeeRegisterform = () => {
   const otpverify = async (e) => {
     const user = { email, userName, phoneNo, password, otp };
     e.preventDefault();
-    console.log("verify", phoneNo, otp);
     const response = await axios
       .post(`${import.meta.env.VITE_BASESERVER_URL}/employee/otpverify`, user)
       .then((res) => {

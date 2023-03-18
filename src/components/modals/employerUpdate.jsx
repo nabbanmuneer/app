@@ -20,7 +20,6 @@ const employeeUpdate = ({ setIsOpen }) => {
   const [id,setId]=useState(" ")
   // ---------------------------for details--------------------------
   useEffect(() => {
-    console.log("error", user, token);
     if (token) {
       axios
         .post(`${import.meta.env.VITE_BASESERVER_URL}/home/get`, user, {
@@ -92,11 +91,9 @@ const employeeUpdate = ({ setIsOpen }) => {
           import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
         }/image/upload`,data)
         .then((response) => {
-          console.log("response",response)
           logoUrl = response.data.secure_url;
         })
-        .catch((error) => {
-          
+        .catch((error) => {  
           console.log(error);;
         });
     }
@@ -111,7 +108,6 @@ const employeeUpdate = ({ setIsOpen }) => {
           if (res.data) {
             res;
           } else {
-
           }
         });
 

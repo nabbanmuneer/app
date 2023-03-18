@@ -27,7 +27,6 @@ const EmployerProfile = () => {
   const [isOpenFrom, setIsOpenFrom] = useState(false);
   const [job, setJob] = useState([]);
   useEffect(() => {
-    console.log("error", user, token);
     if (token) {
       axios
         .post(

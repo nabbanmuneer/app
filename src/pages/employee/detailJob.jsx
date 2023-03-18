@@ -21,7 +21,6 @@ const detailJob = () => {
   Moment.locale("en");
   let { id } = useParams();
   const bidPost = (jobId) => {
-    
     const bidData = { bidValue, userId, jobId, userName };
     axios
       .post(`${import.meta.env.VITE_BASESERVER_URL}/employee/bidPost`, bidData)
@@ -40,7 +39,7 @@ const detailJob = () => {
     axios
       .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/jobData`, data)
       .then((response) => {
-       
+
         const jobData = response.data.jobsData;
         const job = response.data.job[0];
         console.log(jobData);

@@ -25,7 +25,6 @@ const JobDetail = () => {
   }, []);
 
   const employeeProfile = (user) => {
-    console.log(user);
     Navigate(`/employee/profile/${user}`);
   }
   const deleteJob = (id) => {
