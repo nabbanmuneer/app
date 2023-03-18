@@ -79,7 +79,7 @@ const detailJob = () => {
           <span> {Moment(jobTitle.createdAt).format("d MMM yyyy")} </span>
         </div>
         <div className="p-2 text-lg tex">
-          <span className="font-bold">S :</span>{" "}
+          <span className="font-bold">STATUS :</span>{" "}
           <span>{jobTitle.status} </span>
         </div>
       </div>

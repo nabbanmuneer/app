@@ -34,14 +34,11 @@ const Login = () => {
     onSubmit: async (values) => {
        try {
         let { email, password } = values;
-        console.log(values);
         const userData = await login({ email, password }).unwrap();
-        console.log(userData);
         let token = await userData.accessToken
         dispatch(setCredentials({ ...userData, email }));
         if (!userData) {
           formik.setErrors(userData.errors);
-          console.log("formik user",userData.errors);
         } else {
           axios.defaults.headers.common["Authorization"] = token;
           Swal.fire('successfully login')
@@ -49,7 +46,6 @@ const Login = () => {
         }
       } catch (err) {
         Swal.fire('Invalid Email or Password')
-        console.log(err);
       } finally {
         formik.setSubmitting(false);
       }
@@ -57,7 +53,7 @@ const Login = () => {
   });
 
   return (
-    <div className="w-full h-screen h-lg-full bg-yellow-400  flex flex-col items-center  ">
+    <div className="w-full h-[700px] h-lg-full bg-yellow-400  flex flex-col items-center  ">
       <div className="p-5 text-5xl">Sign In</div>
       <div className="w-[60%] sm:w-[40%] md:w-[35%] lg:w-[25%]  ">
         <form
