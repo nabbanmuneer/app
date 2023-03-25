@@ -13,8 +13,8 @@ const EmployerProfile = () => {
   const Navigate = useNavigate();
   const token = useSelector(selectCurrentToken);
   const role = useSelector(selectCurrentRole);
-  let { id } = useParams();
-  let data = { id, role };
+  const { id } = useParams();
+  const data = { id, role };
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
@@ -48,7 +48,7 @@ const EmployerProfile = () => {
           }
         });
     }
-  }, [setIsOpenFrom, setIsOpen]);
+  }, [isOpenFrom, isOpen]);
 
   const jobProfile = (id) => {
     Navigate(`/employer/jobs/${id}`);

@@ -10,10 +10,10 @@ import {
 import EmployeeUpdate from "../../components/modals/employeeUpdate";
 const EmployeeProfile = () => {
   const Navigate = useNavigate();
-  let userId = useSelector(selectCurrentId);
+  const userId = useSelector(selectCurrentId);
   const role = useSelector(selectCurrentRole);
-  let { user } = useParams();
-  let id = " ";
+  const { user } = useParams();
+  const id = " ";
   if (role == "employee") {
     id = userId;
   } else {
