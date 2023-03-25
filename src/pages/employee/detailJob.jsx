@@ -88,7 +88,7 @@ const detailJob = () => {
           {" "}
           {!bided ? (
             <div className="p-5 grid-flow-col m-5 rounded-xl bg-yellow-400  w-fit">
-              {jobTitle.jobType == "partTime" ? (
+              {jobTitle.jobType == "part Time" ? (
                 <>
                   <input
                     onChange={(e) => {
