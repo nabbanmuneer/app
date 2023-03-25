@@ -20,6 +20,7 @@ const EmployerProfile = () => {
   const [phoneNo, setPhoneNo] = useState("");
   const [place, setPlace] = useState("");
   const [logo, setLogo] = useState("");
+  const [details,setDetails]=useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenFrom, setIsOpenFrom] = useState(false);
   const [job, setJob] = useState([]);

@@ -186,14 +186,14 @@ const employeeUpdate = ({ setIsOpen }) => {
               <p className="w-[50%]">Add Logo :</p>
               <label className="w-full ">
                 <input
-                  class="text-sm cursor-pointer w-36 hidden"
+                  className="text-sm cursor-pointer w-36 hidden"
                   onChange={(e) => {
                     setLogo(e.target.files[0]);
                   }}
                   type="file"
                   multiple
                 />
-                <div class="text bg-neutral-800  text-neutral-300 border border-gray-300 text-center rounded cursor-pointer p-1 px-3">
+                <div className="text bg-neutral-800  text-neutral-300 border border-gray-300 text-center rounded cursor-pointer p-1 px-3">
                   Select the picture
                 </div>
               </label>

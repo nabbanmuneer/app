@@ -12,8 +12,8 @@ const EmployeeProfile = () => {
   const Navigate = useNavigate();
   const userId = useSelector(selectCurrentId);
   const role = useSelector(selectCurrentRole);
-  const { user } = useParams();
-  const id = " ";
+  let { user } = useParams();
+  let id = " ";
   if (role == "employee") {
     id = userId;
   } else {
