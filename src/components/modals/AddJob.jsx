@@ -30,7 +30,7 @@ const AddJob = ({ setIsOpenFrom }) => {
     initialValues: {
       jobTitle: "",
       Category: "",
-      jobType: "full Time",
+      jobType: "part Time",
       workPlacetype: "On site",
       amount: "",
       salaryType: "per month",
@@ -139,8 +139,8 @@ const AddJob = ({ setIsOpenFrom }) => {
                 className="bg-yellow-400 mr-1"
                 value={formik.values.jobType}
               >
-                <option value="partTime">Part time</option>
-                <option value="fullTime">Full time</option>
+                <option value="part Time">Part time</option>
+                <option value="full Time">Full time</option>
               </select>
               <p className="">Workplace Type :</p>
               <select
