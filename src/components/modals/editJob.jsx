@@ -18,7 +18,7 @@ const AddJob = ({ setIsOpenFrom }) => {
     axios
       .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/jobData`, data)
       .then((response) => {
-        console.log(response);
+
         const jobData = response.data.jobsData;
         setJobTitle(jobData.jobTitle);
         setCategory(jobData.Category);
