@@ -43,7 +43,7 @@ const JobDetail = () => {
     let userId = id
     let amount = value
     const data = { jobId, userId, amount };
-    console.log("ssss", data);
+
     axios
       .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/selected`, data)
       .then((response) => {

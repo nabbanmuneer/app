@@ -43,7 +43,7 @@ const EmployeeProfile = () => {
           } else {
             let data = response.data.data.user;
             let selecled = response.data.data.select;
-            console.log(selecled);
+
             setSelect(selecled)
             setJob(response.data.data.job);
             setUserName(data.userName);
@@ -55,7 +55,7 @@ const EmployeeProfile = () => {
             setPdf(data.resume);
           }
         });
-    }
+    }run 
   }, [isOpen]);
   const jobProfile = (id) => {
     Navigate(`/employee/jobs/${id}`);

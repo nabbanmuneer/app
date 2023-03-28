@@ -101,16 +101,16 @@ const employeeUpdate = ({ setIsOpen }) => {
         )
         .then((response) => {
           profilePic = response.data.secure_url;
-          console.log("url photo cloudinary;", profilePic);
+
         })
         .catch((error) => {
-          console.error(error);
+
           return "error";
         });
     }
     //   here over
     //-------------------------  pdf posted-----------------------------------------------
-    console.log("profileURL", profilePic);
+
     if (pdf) {
       const resumeData = new FormData();
       resumeData.append("file", pdf);
@@ -130,10 +130,10 @@ const employeeUpdate = ({ setIsOpen }) => {
         )
         .then((response) => {
           resume = response.data.secure_url;
-          console.log("url of pdf cloudinary;", resume);
+
         })
         .catch((error) => {
-          console.error(error);
+
           return "error";
         });
     }
@@ -151,7 +151,7 @@ const employeeUpdate = ({ setIsOpen }) => {
 
       setIsOpen(false);
     } else {
-      console.log("Error");
+navigate("/404")
     }
   };
 

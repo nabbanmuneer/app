@@ -169,7 +169,7 @@ const employerRegisterform = () => {
           }
         });
     } else {
-      console.log("Error");
+      navigate("/404")
     }
   };
   const otpverify = (e) => {

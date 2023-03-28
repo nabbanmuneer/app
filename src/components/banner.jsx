@@ -11,23 +11,10 @@ const Banner = () => {
                 .then((response) => {
                 })
         } catch (error) {
-            console.log(error);
-        }
-    }, []);
-    const SearchBar = async () => {
-
-        try {
-            axios
-                .get(`${import.meta.env.VITE_BASESERVER_URL}/home/search`)
-                .then((response) => {
-                    console.log(response.data.data);
-                }).catch((error) => {
-                    Navigate("/404");
-                });
-        } catch (error) {
             Navigate("/404")
         }
-    }
+    }, []);
+
 
     return (
         <div>

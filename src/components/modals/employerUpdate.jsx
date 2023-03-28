@@ -93,10 +93,10 @@ const employeeUpdate = ({ setIsOpen }) => {
           logoUrl = response.data.secure_url;
         })
         .catch((error) => {  
-          console.log(error);;
+          navigate("/404");
         });
     }
-    console.log("profileURL", logoUrl);
+
 
     const user = { userName, place, email,logoUrl , details ,id };
     //=============================Sumbition to controllers===============================

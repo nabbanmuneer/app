@@ -42,7 +42,7 @@ const detailJob = () => {
 
         const jobData = response.data.jobsData;
         const job = response.data.job[0];
-        console.log(jobData);
+
         setJobTitle(jobData);
         setBided(job);
       }).catch((error) => {

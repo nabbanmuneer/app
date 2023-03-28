@@ -61,7 +61,6 @@ const AddJob = ({ setIsOpenFrom }) => {
           duration,
           id
         };
-        console.log(job);
         axios
           .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/addJob`, job)
           .then(response=>{
