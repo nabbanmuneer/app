@@ -12,7 +12,7 @@ const EmployeeProfile = () => {
   const Navigate = useNavigate();
   const userId = useSelector(selectCurrentId);
   const role = useSelector(selectCurrentRole);
-  let { user } = useParams();
+  const { user } = useParams();
   let id = " ";
   if (role == "employee") {
     id = userId;

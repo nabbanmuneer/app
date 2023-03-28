@@ -28,7 +28,7 @@ function App() {
             <>
               <NavBar />
               <EmployeeProfile />
-              <Footer />
+         
             </>
           }
         />
@@ -37,7 +37,7 @@ function App() {
             <>
               <NavBar />
               <EmployerProfile />
-              <Footer />
+           
             </>
           }
         />

@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import {
-  selectCurrentUser,
   selectCurrentRole,
   selectCurrentToken,
 } from "../../features/auth/authSlice";
@@ -20,7 +19,6 @@ const EmployerProfile = () => {
   const [phoneNo, setPhoneNo] = useState("");
   const [place, setPlace] = useState("");
   const [logo, setLogo] = useState("");
-  const [details,setDetails]=useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenFrom, setIsOpenFrom] = useState(false);
   const [job, setJob] = useState([]);
@@ -45,7 +43,6 @@ const EmployerProfile = () => {
             setPhoneNo(data.phoneNo);
             setPlace(data.place);
             setLogo(data.logoUrl);
-            setDetails(data.details);
           }
         });
     }

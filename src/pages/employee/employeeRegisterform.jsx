@@ -174,7 +174,7 @@ const employeeRegisterform = () => {
           }
         });
     } else {
-      console.log("Error");
+      setmsg("invalid email or password");
     }
   };
 
@@ -189,7 +189,9 @@ const employeeRegisterform = () => {
             navigate("/login");
           });
         } else {
-          console.log("error");
+          Swal.fire("registered unsucessfully").then(() => {
+            navigate("/choice");
+          });
         }
       });
   };

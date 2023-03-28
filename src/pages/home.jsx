@@ -12,7 +12,6 @@ const Home = () => {
         .then((response) => {
           setCatFull(response.data.data1);
           setCatPart(response.data.data2)
-          console.log(response);
         })
       }, []);
  const filterJobs = (value)=>{
