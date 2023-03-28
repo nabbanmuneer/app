@@ -44,7 +44,9 @@ const EmployerProfile = () => {
             setPlace(data.place);
             setLogo(data.logoUrl);
           }
-        });
+        }).catch((error) => {
+          Navigate("/404");
+      });
     }
   }, [isOpenFrom, isOpen]);
 

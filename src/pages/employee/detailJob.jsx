@@ -45,7 +45,9 @@ const detailJob = () => {
         console.log(jobData);
         setJobTitle(jobData);
         setBided(job);
-      });
+      }).catch((error) => {
+        navigate("/404");
+    });
   }, [bid]);
 
 

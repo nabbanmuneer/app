@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useFormik } from "formik";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { selectCurrentId } from "../../features/auth/authSlice";
+import { Navigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 const AddJob = ({ setIsOpenFrom }) => {
@@ -32,7 +29,7 @@ const AddJob = ({ setIsOpenFrom }) => {
         setDecrption(jobData.decrption);
         setDuration(jobData.duration);
       }).catch((error) => {
-        console.log("catch error", error);
+          Navigate("/404");
       })
   }, [id]);
 
@@ -62,7 +59,6 @@ const AddJob = ({ setIsOpenFrom }) => {
         });
     } catch (error) {
       Swal.fire("job post unsucessfully");
-      console.log(error);
     }
   };
 
@@ -175,7 +171,7 @@ const AddJob = ({ setIsOpenFrom }) => {
                 value={duration}
               />
             </div>
-            <label>Add decrption :</label>
+            <label>Add description :</label>
             <div
               name="decrption"
               className="flex items-center border-b border-gray-700 py-2 w-[100%]"

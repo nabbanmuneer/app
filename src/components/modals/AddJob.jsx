@@ -16,8 +16,8 @@ const AddJob = ({ setIsOpenFrom }) => {
     if(!values.Category || values.Category==" "){
       error.Category = "Category is required";
     }
-    if(!values.amount || values.amount==" "){
-      error.amount = "Amount is required";
+    if(!values.amount || values.amount==" " || values.amount > 0 ){
+      error.amount = "Amount is required or invalid amount";
     }
     if(!values.decrption || values.decrption==" "){
       error.decrption = "Decrption is required";
@@ -66,7 +66,7 @@ const AddJob = ({ setIsOpenFrom }) => {
           .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/addJob`, job)
           .then(response=>{
             if(response?.status==200){
-              Swal.fire("job posted sucessfully")
+              Swal.fire("Job added sucessfully")
               .then(()=>{
                 setIsOpenFrom(false);
               })
@@ -191,7 +191,7 @@ const AddJob = ({ setIsOpenFrom }) => {
                 value={formik.values.duration}
               />
             </div>
-            <label>Add decrption :</label>
+            <label>Add description :</label>
             <div
               name="decrption"
               className="flex items-center border-b border-gray-700 py-2 w-[100%]"

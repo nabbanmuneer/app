@@ -12,7 +12,9 @@ const Home = () => {
         .then((response) => {
           setCatFull(response.data.data1);
           setCatPart(response.data.data2)
-        })
+        }).catch((error) => {
+          Navigate("/404");
+      });
       }, []);
  const filterJobs = (value)=>{
   Navigate(`/jobs/Category/${value}`)

@@ -15,9 +15,10 @@ import JobDetail from "./pages/employer/jobDetail";
 import DetailJob from "./pages/employee/detailJob";
 import JobPage from "./pages/jobPage";
 import Footer from "./components/footer";
-import EmployeeRequireAuth from "./features/requiredAuth/employeeRequireAuth"
+import EmployeeRequireAuth from "./features/requiredAuth/employeeRequireAuth";
 import EmployerRequireAuth from "./features/requiredAuth/employerRequiredAuth";
-import RequiredAuth from "./features/requiredAuth/requiredAuth"
+import RequiredAuth from "./features/requiredAuth/requiredAuth";
+import Error from "./components/error";
 function App() {
   return (
     <Routes>
@@ -132,7 +133,13 @@ function App() {
             </>
           }
         />
-
+<Route path="/404"
+          element={
+            <>
+              <Error />
+            </>
+          }
+        />
       </Route>
 
     </Routes>

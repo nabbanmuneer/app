@@ -35,7 +35,9 @@ const employeeUpdate = ({ setIsOpen }) => {
             setId(data._id)
             setLogo(data.logoUrl);
           }
-        });
+        }).catch((error) => {
+          navigate("/404");
+      });
     }
   }, []);
   const [validation, setValidation] = useState({

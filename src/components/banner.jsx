@@ -2,6 +2,7 @@ import React from 'react';
 import slide from '../assets/slider-img.png';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 const Banner = () => {
     useEffect(() => {
         try {
@@ -20,9 +21,11 @@ const Banner = () => {
                 .get(`${import.meta.env.VITE_BASESERVER_URL}/home/search`)
                 .then((response) => {
                     console.log(response.data.data);
-                })
+                }).catch((error) => {
+                    Navigate("/404");
+                });
         } catch (error) {
-            console.log(error);
+            Navigate("/404")
         }
     }
 

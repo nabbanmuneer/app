@@ -13,7 +13,9 @@ const JobsPage = () => {
           .then((response) => { 
              const values = response.data.data
              setJobss(values)
-          })  
+          }).catch((error) => {
+            Navigate("/404");
+        });  
     }, []);
     const jobProfile = (id)=>{
         Navigate(`/employee/jobs/${id}`)

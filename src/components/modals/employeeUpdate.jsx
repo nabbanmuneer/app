@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import OtpInput from "react-otp-input";
 import { useSelector } from "react-redux";
 import {
   selectCurrentUser,
@@ -29,6 +28,7 @@ const employeeUpdate = ({ setIsOpen }) => {
         })
         .then((response) => {
           if (response.status == "404") {
+            Navigate("/404");
           } else {
             let data = response.data.data;
             setUserName(data.userName);
@@ -40,7 +40,9 @@ const employeeUpdate = ({ setIsOpen }) => {
             setPdf(data.resume);
             setId(data._id);
           }
-        });
+        }).catch((error) => {
+          navigate("/404");
+      });
     }
   }, []);
   //================validation=================
@@ -239,7 +241,7 @@ const employeeUpdate = ({ setIsOpen }) => {
                   type="file"
                   multiple
                 />
-                <div class="text bg-neutral-800  text-neutral-300 border border-gray-300 text-center rounded cursor-pointer p-1 px-3">
+                <div className="text bg-neutral-800  text-neutral-300 border border-gray-300 text-center rounded cursor-pointer p-1 px-3">
                   Select the picture
                 </div>
               </label>
@@ -248,14 +250,14 @@ const employeeUpdate = ({ setIsOpen }) => {
               <p className="w-[50%]">Upload CV :</p>
               <label className="w-full ">
                 <input
-                  class="text-sm cursor-pointer w-36 hidden"
+                  className="text-sm cursor-pointer w-36 hidden"
                   onChange={(e) => {
                     setPdf(e.target.files[0]);
                   }}
                   type="file"
                   multiple
                 />
-                <div class="text bg-neutral-800  text-neutral-300 border border-gray-300 text-center rounded cursor-pointer p-1 px-3">
+                <div className="text bg-neutral-800  text-neutral-300 border border-gray-300 text-center rounded cursor-pointer p-1 px-3">
                   Upload your cv
                 </div>
               </label>

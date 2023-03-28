@@ -21,7 +21,9 @@ const JobDetail = () => {
         const jobBid = response.data.job;
         setJobTitle(jobData);
         setJob(jobBid);
-      });
+      }).catch((error) => {
+        Navigate("/404");
+    });
   }, []);
 
   const employeeProfile = (user) => {
