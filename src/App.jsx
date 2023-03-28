@@ -14,6 +14,7 @@ import FiltersJobs from "./pages/FilterJobs"
 import JobDetail from "./pages/employer/jobDetail";
 import DetailJob from "./pages/employee/detailJob";
 import JobPage from "./pages/jobPage";
+import Footer from "./components/footer";
 import EmployeeRequireAuth from "./features/requiredAuth/employeeRequireAuth"
 import EmployerRequireAuth from "./features/requiredAuth/employerRequiredAuth";
 import RequiredAuth from "./features/requiredAuth/requiredAuth"
@@ -27,6 +28,7 @@ function App() {
             <>
               <NavBar />
               <EmployeeProfile />
+              <Footer />
             </>
           }
         />
@@ -35,6 +37,7 @@ function App() {
             <>
               <NavBar />
               <EmployerProfile />
+              <Footer />
             </>
           }
         />
@@ -45,6 +48,7 @@ function App() {
             <>
               <NavBar />
               <DetailJob />
+              <Footer />
             </>
           }
         />
@@ -57,6 +61,7 @@ function App() {
             <>
               <NavBar />
               <JobDetail />
+              <Footer />
             </>
           }
         />
@@ -66,6 +71,7 @@ function App() {
             <>
               <NavBar />
               <EmployeeRegisterform />
+              <Footer />
             </>
           }
         />
@@ -74,6 +80,7 @@ function App() {
             <>
               <NavBar />
               <EmployerRegisterform />
+              <Footer />
             </>
           }
         />
@@ -89,6 +96,7 @@ function App() {
             <>
               <NavBar />
               <Login />
+              <Footer />
             </>
           }
         />
@@ -99,6 +107,7 @@ function App() {
               <NavBar />
               <Banner />
               <Home />
+              <Footer />
             </>
           }
         />
@@ -108,6 +117,7 @@ function App() {
             <>
               <NavBar />
               <FiltersJobs />
+              <Footer />
             </>
           }
         />
@@ -118,6 +128,7 @@ function App() {
             <>
               <NavBar />
               <JobPage />
+              <Footer />
             </>
           }
         />
