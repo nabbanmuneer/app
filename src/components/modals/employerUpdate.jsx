@@ -5,8 +5,10 @@ import {
   selectCurrentUser,
   selectCurrentToken,
 } from "../../features/auth/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const employeeUpdate = ({ setIsOpen }) => {
+  const navigate = useNavigate();
   const user = useSelector(selectCurrentUser);
   const token = useSelector(selectCurrentToken);
   const [userName, setUserName] = useState("");
@@ -53,7 +55,7 @@ const employeeUpdate = ({ setIsOpen }) => {
         ...prevState,
         userName: {
           status: false,
-          message: "name must be more than 2 character",
+          message: "Name must be more than 2 character",
         },
       }));
       return false;
@@ -74,7 +76,7 @@ const employeeUpdate = ({ setIsOpen }) => {
     let logoUrl = "";
     //------------------------- it's for profile logo-------------------------------
     if (logo) {
-      const data = new FormData();
+    const data = new FormData();
       data.append("file", logo);
       data.append(
         "upload_preset",
@@ -85,15 +87,18 @@ const employeeUpdate = ({ setIsOpen }) => {
         `${import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET}`
       );
       await axios
-      .post(
-        `https://api.cloudinary.com/v1_1/${
-          import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
-        }/image/upload`,data)
+        .post(
+          `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
+          }/image/upload`,
+          data
+        )
         .then((response) => {
           logoUrl = response.data.secure_url;
+
         })
-        .catch((error) => {  
-          navigate("/404");
+        .catch((error) => {
+          console.log(error);
+          return "error";
         });
     }
 
@@ -133,7 +138,7 @@ const employeeUpdate = ({ setIsOpen }) => {
             onClick={() => setIsOpen(true)}
           >
             <div className="flex items-center border-b border-gray-700  py-2">
-              <p className="w-[50%]">Username :</p>
+              <p className="w-[50%]">User name :</p>
               <input
                 name="userName"
                 onBlur={nameCheck}
@@ -153,7 +158,7 @@ const employeeUpdate = ({ setIsOpen }) => {
               </p>
             )}
            <div className="flex items-center border-b border-gray-700 py-2 ">
-            <p className="w-[50%]">email :</p>
+            <p className="w-[50%]">Email :</p>
             <label
               name="email"
               className="appearance-none  bg-transparent border-none w-full  leading-tight focus:outline-none"

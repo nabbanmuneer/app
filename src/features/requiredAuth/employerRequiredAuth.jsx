@@ -11,7 +11,7 @@ const employerRequireAuth = () => {
     return (
         token && role == "employer"
         ? <Outlet />
-        : <Navigate to='/login' state={{from:location}} replace />
+        : <Navigate to='/' state={{from:location}} replace />
     );
 }
 

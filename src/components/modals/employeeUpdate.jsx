@@ -28,7 +28,7 @@ const employeeUpdate = ({ setIsOpen }) => {
         })
         .then((response) => {
           if (response.status == "404") {
-            Navigate("/404");
+            navigate("/404");
           } else {
             let data = response.data.data;
             setUserName(data.userName);
@@ -42,7 +42,7 @@ const employeeUpdate = ({ setIsOpen }) => {
           }
         }).catch((error) => {
           navigate("/404");
-      });
+        });
     }
   }, []);
   //================validation=================
@@ -151,7 +151,7 @@ const employeeUpdate = ({ setIsOpen }) => {
 
       setIsOpen(false);
     } else {
-navigate("/404")
+      navigate("/404")
     }
   };
 
@@ -167,7 +167,7 @@ navigate("/404")
             onClick={() => setIsOpen(true)}
           >
             <div className="flex items-center border-b border-gray-700  py-2">
-              <p className="w-[50%]">Username :</p>
+              <p className="w-[50%]">User name :</p>
               <input
                 name="userName"
                 onBlur={nameCheck}
@@ -185,7 +185,7 @@ navigate("/404")
               <p className="text-red-700 mt-6 ">{validation.userName.message}</p>
             )}
             <div className="flex items-center border-b border-gray-700 py-2 ">
-              <p className="w-[50%]">email :</p>
+              <p className="w-[50%]">Email :</p>
               <label
                 name="email"
                 className="appearance-none  bg-transparent border-none w-full  leading-tight focus:outline-none"

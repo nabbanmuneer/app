@@ -55,7 +55,7 @@ const EmployeeProfile = () => {
             setPdf(data.resume);
           }
         });
-    }run 
+    }
   }, [isOpen]);
   const jobProfile = (id) => {
     Navigate(`/employee/jobs/${id}`);

@@ -8,7 +8,7 @@ const Error = () => {
                 404
             </div>
             <div className='font-semibold text-yellow-400'>
-                Page not found back to <spam className="text-blue-900 underline cursor-pointer" onClick={()=>{navigate("/")}} > home</spam>
+                Page not found back to <span className="text-blue-900 underline cursor-pointer" onClick={()=>{navigate("/")}} > home</span>
             </div>
         </div>
     );
