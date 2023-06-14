@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 import {
   selectCurrentUser,
   selectCurrentToken,
@@ -18,7 +19,7 @@ const employeeUpdate = ({ setIsOpen }) => {
   const [qualification, setQualification] = useState("");
   const [image, setImage] = useState("");
   const [pdf, setPdf] = useState("");
-  const [id, setId] = useState(' ');
+  const [id, setId] = useState('');
   // ---------------------------for details--------------------------
   useEffect(() => {
     if (token) {
@@ -28,7 +29,7 @@ const employeeUpdate = ({ setIsOpen }) => {
         })
         .then((response) => {
           if (response.status == "404") {
-            navigate("/404");
+          
           } else {
             let data = response.data.data;
             setUserName(data.userName);
@@ -41,7 +42,7 @@ const employeeUpdate = ({ setIsOpen }) => {
             setId(data._id);
           }
         }).catch((error) => {
-          navigate("/404");
+          console.log(error);
         });
     }
   }, []);
@@ -87,15 +88,11 @@ const employeeUpdate = ({ setIsOpen }) => {
       data.append("file", image);
       data.append(
         "upload_preset",
-        `${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}`
-      );
-      data.append(
-        "cloud_name",
         `${import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET}`
       );
       await axios
         .post(
-          `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
+          `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
           }/image/upload`,
           data
         )
@@ -141,15 +138,20 @@ const employeeUpdate = ({ setIsOpen }) => {
 
     //=============================Sumbition to controllers===============================
     if (nameCheck()) {
-      const response = axios
-        .post(`${import.meta.env.VITE_BASESERVER_URL}/employee/update`, user)
-        .then((res) => {
-          if (res.data) {
-          } else {
+      axios
+        .post(`${import.meta.env.VITE_BASESERVER_URL}/employee/update`, user).then((response)=>{
+          if(response.status == 200 ){
+            Swal.fire("job Edited sucessfully").then(() => {
+              setIsOpenFrom(false);
+            });
+          }else{
+            return "error";
           }
-        });
+        }).catch((error) => {
 
-      setIsOpen(false);
+          return "error";
+        });
+      
     } else {
       navigate("/404")
     }

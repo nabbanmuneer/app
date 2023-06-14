@@ -22,7 +22,10 @@ const JobsPage = () => {
       }
     return (
         <div>
-          <div className='text-3xl font-bold p-5'>JOBS</div>
+          <div className='text-3xl font-bold p-5'>
+            JOBS
+            <button className=' ml-3 p-3 bg-black text-yellow-400 rounded-xl text-xl' >Part Time</button>
+            </div>
             <div className='w-50 '>
             {jobs &&
                 jobs.map((value, index) => (

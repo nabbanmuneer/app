@@ -76,33 +76,25 @@ const employeeUpdate = ({ setIsOpen }) => {
     let logoUrl = "";
     //------------------------- it's for profile logo-------------------------------
     if (logo) {
-    const data = new FormData();
-      data.append("file", logo);
-      data.append(
+      console.log('logo : ',logo);
+    const formData = new FormData();
+    formData.append("file", logo);
+    formData.append(
         "upload_preset",
-        `${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}`
+        import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
       );
-      data.append(
-        "cloud_name",
-        `${import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET}`
-      );
-      await axios
+      
+      console.log("import",import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+      let {data} = await axios
         .post(
-          `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
+          `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
           }/image/upload`,
-          data
+          formData
         )
-        .then((response) => {
-          logoUrl = response.data.secure_url;
-
-        })
-        .catch((error) => {
-          console.log(error);
-          return "error";
-        });
+       logoUrl = data.secure_url
     }
 
-
+    console.log('logUrl : ',logoUrl)
     const user = { userName, place, email,logoUrl , details ,id };
     //=============================Sumbition to controllers===============================
     if (nameCheck()) {
