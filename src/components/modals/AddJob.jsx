@@ -8,18 +8,19 @@ import Swal from "sweetalert2";
 import axios from "axios";
 const AddJob = ({ setIsOpenFrom }) => {
   const id = useSelector(selectCurrentId);
-  const validate = (values)=>{
+  const validate = (values) => {
+    const re = /^[0-9\b]+$/;
     const error = {};
-    if(!values.jobTitle || values.jobTitle==" "){
+    if (!values.jobTitle || values.jobTitle == " ") {
       error.jobTitle = "Job tilte is required";
     }
-    if(!values.Category || values.Category==" "){
+    if (!values.Category || values.Category == " ") {
       error.Category = "Category is required";
     }
-    if(!values.amount || values.amount==" " || values.amount > 0 ){
+    if (!values.amount || values.amount == " " || values.amount < 0) {
       error.amount = "Amount is required or invalid amount";
     }
-    if(!values.decrption || values.decrption==" "){
+    if (!values.decrption || values.decrption == " ") {
       error.decrption = "Decrption is required";
     }
     return error;
@@ -32,7 +33,7 @@ const AddJob = ({ setIsOpenFrom }) => {
       Category: "",
       jobType: "part Time",
       workPlacetype: "On site",
-      amount: "",
+      amount: " ",
       salaryType: "per month",
       decrption: "",
       duration: "",
@@ -63,13 +64,13 @@ const AddJob = ({ setIsOpenFrom }) => {
         };
         axios
           .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/addJob`, job)
-          .then(response=>{
-            if(response?.status==200){
+          .then(response => {
+            if (response?.status == 200) {
               Swal.fire("Job added sucessfully")
-              .then(()=>{
-                setIsOpenFrom(false);
-              })
-            }else{
+                .then(() => {
+                  setIsOpenFrom(false);
+                })
+            } else {
               Swal.fire("job post unsucessfully");
             }
           }
@@ -89,7 +90,7 @@ const AddJob = ({ setIsOpenFrom }) => {
       <div className="w-full h-screen h-lg-full bg-opacity-75 bg-black inset-0 fixed flex flex-col items-center">
         <div
           className="text-white font-extrabold self-end cursor-pointer"
-            onClick={() => setIsOpenFrom(false)}
+          onClick={() => setIsOpenFrom(false)}
         >
           close
         </div>
@@ -111,10 +112,10 @@ const AddJob = ({ setIsOpenFrom }) => {
                 value={formik.values.jobTitle}
               />
             </div>
-              {formik.errors?.jobTitle ?
-               <div className="text-red-400">
+            {formik.errors?.jobTitle ?
+              <div className="text-red-400">
                 {formik.errors.jobTitle}</div> : null}
-           
+
             <div className="flex items-center border-b border-gray-700  py-2">
               <p className="w-[50%]"> Category :</p>
               <input
@@ -128,7 +129,7 @@ const AddJob = ({ setIsOpenFrom }) => {
               />
             </div>
             {formik.errors?.Category ?
-               <div className="text-red-400">
+              <div className="text-red-400">
                 {formik.errors.Category}</div> : null}
             <div className="flex items-center border-b border-gray-700  py-2">
               <p className="">Job Type :</p>
@@ -153,7 +154,7 @@ const AddJob = ({ setIsOpenFrom }) => {
                 <option value="hybrid">hybrid</option>
               </select>
             </div>
-            
+
             <div className="flex items-center border-b border-gray-700  py-2">
               <p className="w-[50%]"> Salary :</p>
               <input
@@ -162,7 +163,6 @@ const AddJob = ({ setIsOpenFrom }) => {
                 className="appearance-none border-b  border-gray-700 bg-transparent border-none w-full text-gray-700 leading-tight focus:outline-none"
                 type="text"
                 placeholder="Amount"
-                aria-label="Duration"
                 value={formik.values.amount}
               />
               <select
@@ -176,7 +176,7 @@ const AddJob = ({ setIsOpenFrom }) => {
               </select>
             </div>
             {formik.errors?.amount ?
-               <div className="text-red-400">
+              <div className="text-red-400">
                 {formik.errors.amount}</div> : null}
             <div className="flex items-center border-b border-gray-700  py-2">
               <p className="w-[50%]"> Duration :</p>
@@ -200,7 +200,7 @@ const AddJob = ({ setIsOpenFrom }) => {
               <textarea name="decrption" className=" w-full"></textarea>
             </div>
             {formik.errors?.decrption ?
-               <div className="text-red-400">
+              <div className="text-red-400">
                 {formik.errors.decrption}</div> : null}
             <button
               className="flex-shrink-0 bg-black hover:bg-yellow-400 border-black text-semibold hover:border-yellow-400 text-sm border-4  text-white py-1 px-2 w-full mt-3 rounded"

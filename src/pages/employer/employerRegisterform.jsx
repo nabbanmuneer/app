@@ -164,7 +164,7 @@ const employerRegisterform = () => {
      axios
         .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/register`, user)
         .then((res) => {
-          if (res.data.status == true) {
+          if (res.status == 200 ) {
             setstatus(true);
           }
         });
@@ -178,7 +178,7 @@ const employerRegisterform = () => {
     const response = axios
       .post(`${import.meta.env.VITE_BASESERVER_URL}/employer/otpverify`, user)
       .then((res) => {
-        if (res.data.status == true) {
+        if (res.status == 200 ) {
           Swal.fire("registered sucessfully").then(() => {
             navigate("/login");
           });

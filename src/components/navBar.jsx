@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { GiHamburgerMenu, RxCross1 } from "react-icons/all";
+import React, { useState, useEffect } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { RxCross1 } from "react-icons/rx"
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Swal from "sweetalert2";
+import axios from "axios";
 import {
   selectCurrentUser,
   selectCurrentToken,
@@ -12,6 +14,7 @@ import { logOut } from "../features/auth/authSlice";
 
 function NavBar() {
   const Navigate = useNavigate();
+  const [data , setData] = useState();
   const [nav, setNav] = useState("nav");
   const [searchOn, setSearchOn] = useState(false)
   const role = useSelector(selectCurrentRole);
@@ -43,7 +46,19 @@ function NavBar() {
     }
   };
 
+  useEffect(() => {
+    axios
+  .post(`${import.meta.env.VITE_BASESERVER_URL}/home/search`)
+  .then((response) => {
+    if(response.status == 200){
+      setData(response.data.data);
+    }else{
 
+    }
+  }).catch((error) => {
+
+});
+}, []);
 
   return (
     <div className="flex  cursor-context-menu h-30 max-w-[1240] mx-auto px-0  ">
@@ -66,6 +81,13 @@ function NavBar() {
             }}
           >
             Job
+          </div>
+          <div className="p-3 " >
+            <input
+              className="rounded-md bg-transparent"
+              type="text" 
+              name="search" 
+              placeholder="search" />
           </div>
 
         </div>

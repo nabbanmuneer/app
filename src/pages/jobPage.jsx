@@ -22,7 +22,7 @@ const JobsPage = () => {
       }
     return (
         <div>
-          <div className='text-3xl font-bold p-5'>
+          <div className='text-3xl font-bold p-5 min-h-screen'>
             JOBS
             <button className=' ml-3 p-3 bg-black text-yellow-400 rounded-xl text-xl' >Part Time</button>
             </div>

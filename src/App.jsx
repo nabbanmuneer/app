@@ -18,54 +18,56 @@ import Footer from "./components/footer";
 import EmployeeRequireAuth from "./features/requiredAuth/employeeRequireAuth";
 import EmployerRequireAuth from "./features/requiredAuth/employerRequiredAuth";
 import RequiredAuth from "./features/requiredAuth/requiredAuth";
+import AdminLogin from "./pages/admin/adminLogin";
+import AdminMain from "./pages/admin/adminMain";
 import Error from "./components/error";
 function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-      <Route element={<RequiredAuth />}>
-      <Route path="/employee/profile/:user"
-          element={
-            <>
-              <NavBar />
-              <EmployeeProfile />
-              <Footer />
-            </>
-          }
-        />
-      <Route path="/employer/profile/:user"
-          element={
-            <>
-              <NavBar />
-              <EmployerProfile />
-              <Footer />
-            </>
-          }
-        />
-      </Route>
-      <Route element={<EmployeeRequireAuth />}>
-        <Route path="/employee/jobs/:id"
-          element={
-            <>
-              <NavBar />
-              <DetailJob />
-       
-            </>
-          }
-        />
+        <Route element={<RequiredAuth />}>
+          <Route path="/employee/profile/:user"
+            element={
+              <>
+                <NavBar />
+                <EmployeeProfile />
+                <Footer />
+              </>
+            }
+          />
+          <Route path="/employer/profile/:user"
+            element={
+              <>
+                <NavBar />
+                <EmployerProfile />
+                <Footer />
+              </>
+            }
+          />
+        </Route>
+        <Route element={<EmployeeRequireAuth />}>
+          <Route path="/employee/jobs/:id"
+            element={
+              <>
+                <NavBar />
+                <DetailJob />
+
+              </>
+            }
+          />
         </Route>
         <Route element={<EmployerRequireAuth />}>
-       
-        
-        <Route path="/employer/jobs/:id"
-          element={
-            <>
-              <NavBar />
-              <JobDetail />
-   
-            </>
-          }
-        />
+
+
+          <Route path="/employer/jobs/:id"
+            element={
+              <>
+                <NavBar />
+                <JobDetail />
+
+              </>
+            }
+          />
         </Route>
         <Route path="/employee/register"
           element={
@@ -101,7 +103,7 @@ function App() {
             </>
           }
         />
-        
+
         <Route path="/"
           element={
             <>
@@ -112,7 +114,7 @@ function App() {
             </>
           }
         />
-       
+
         <Route path="/jobs/:role/:id"
           element={
             <>
@@ -122,8 +124,8 @@ function App() {
             </>
           }
         />
-        
-        
+
+
         <Route path="/job"
           element={
             <>
@@ -133,13 +135,26 @@ function App() {
             </>
           }
         />
-<Route path="/404"
+        <Route path="/404"
           element={
             <>
               <Error />
             </>
           }
         />
+        <Route path="/admin/login"
+          element={
+            <>
+              <AdminLogin />
+            </>
+          } />
+          <Route path="/admin"
+          element={
+            <>
+              <AdminMain />
+              
+            </>
+          } />
       </Route>
 
     </Routes>

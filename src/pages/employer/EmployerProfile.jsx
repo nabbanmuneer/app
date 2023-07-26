@@ -55,7 +55,7 @@ const EmployerProfile = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen">
       <div className="w-[100%] flex justify-center  ">
         <div className=" w-full md:w-[100%] p-5 rounded-xl ">
           <div className=" h-full w-full bg-yellow-400 rounded-md flex flex-col  md:flex-row justify-between ">
@@ -98,7 +98,7 @@ const EmployerProfile = () => {
       </div>
       {isOpen && <EmployerUpdate setIsOpen={setIsOpen} />}
       {isOpenFrom && <AddJob setIsOpenFrom={setIsOpenFrom} />}
-    </>
+    </div>
   );
 };
 

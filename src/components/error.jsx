@@ -7,8 +7,10 @@ const Error = () => {
             <div className='text-9xl font-semibold text-yellow-400 '>
                 404
             </div>
+            <div className='text-yellow-400'>The requested resource was not found.</div>
             <div className='font-semibold text-yellow-400'>
-                Page not found back to <span className="text-blue-900 underline cursor-pointer" onClick={()=>{navigate("/")}} > home</span>
+                Page not found back to<span> </span> 
+                <span className="text-blue-900 underline cursor-pointer" onClick={()=>{navigate("/")}} >home</span>
             </div>
         </div>
     );
